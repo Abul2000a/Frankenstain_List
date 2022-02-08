@@ -13,7 +13,7 @@ Node<T>::Node(T value)
 template<typename T> 
 FrankenstainList<T>::FrankenstainList()
 {
-    head = tail = nullptr;
+    head = tail = smaller = greater = nullptr;
     size = 0;
 }
 
