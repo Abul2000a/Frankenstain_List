@@ -70,7 +70,7 @@ int FrankenstainList<T>::delete_front()
         {
             tail = nullptr;
         }
-        int delValue = temp->data;
+        T delValue = temp->data;
         head = head->next;
  
         delete temp;
