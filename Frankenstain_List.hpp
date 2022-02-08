@@ -169,18 +169,18 @@ void FrankenstainList<T>::search(T value)
 template<typename T>
 void FrankenstainList<T>::PutSorted(Node<T>* tmp)
 {
-    if(tmp != nullptr)
+    if(tmp == nullptr)
     return;
 
 
-    if (greater != nullptr){
+    if (greater == nullptr){
         greater = tmp;
         smaller = tmp;
         return;
     }
 
     Node<T>* current = head;
-    while (current->data < tmp->data && current->gt == nullptr)
+    while (current->data < tmp->data && current->gt != nullptr)
     {
         current = current->gt;
     }
@@ -191,7 +191,7 @@ void FrankenstainList<T>::PutSorted(Node<T>* tmp)
         current->gt = tmp;
         tmp->sm = current;
 
-        if(tmp->gt != nullptr)
+        if(tmp->gt == nullptr)
         {
             smaller = tmp;
         }
@@ -199,7 +199,7 @@ void FrankenstainList<T>::PutSorted(Node<T>* tmp)
     else
     {
     tmp->sm = current->sm;
-    if (current->sm == nullptr)
+    if (current->sm != nullptr)
     {
         current->sm->gt = tmp;
     }
